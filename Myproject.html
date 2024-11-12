@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+    font-family: 'Roboto', sans-serif;
+}
+body{
+    margin: 0%;
+    padding: 0%;
+    background-color: rgb(212, 211, 211);
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(1, 1, 21);
+    color: white;
+    position: fixed;
+    top: 0%;
+    width: 100%;
+}
+.logo{
+    margin-left: 13px;
+    font-size: 19px;
+}
+nav ul{
+    display: flex;
+    align-items: center;
+    margin-right: 13px;
+}
+ul li{
+    list-style: none;
+}
+ul li a{
+    text-decoration: none;
+    margin-inline: 20px;
+    font-size: 20px;
+    color: white;
+}
+ul li a:hover, ul li a.active{
+    color: rgb(4, 219, 219);
+    font-weight: 600;
+}
+.icon{
+    display: none;
+    align-items: center;
+    font-size: 30px;
+    margin-right: 12px;
+}
+.main{
+    display: flex;
+    justify-content: center;
+    margin-top: 155px;
+
+}
+.mainText h1{
+    font-size: 55px;
+    color: rgb(3, 168, 168);
+}
+.mainText h2{
+    font-size: 33px;
+}
+.mainText button{
+    width: 120px;
+    height: 34px;
+    background-color: rgb(3, 123, 123);
+    color: white;
+    font-size: 18px;
+    border: none;
+}
+.mainText button:hover{
+    border: 2px solid rgb(3, 163, 163);
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+}
+.cards{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.cards .crd{
+    margin-inline: 22px;
+    text-align: center;
+}
+.crd i{
+    color: rgb(248, 118, 3);
+     position: relative;
+     top: -11px;
+}
+.crd h3{
+    margin-top: 3px;
+}
+.crd img{
+    width: 300px;
+    height: 340px;
+}
+
+.head{
+    padding: 65px;
+    text-align: center;
+}
+.head span{
+    color: orangered;
+}
+.reviews{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.reviews .rCard{
+    width: 260px;
+    height: 240px;
+    background-color: #fff;
+    text-align: center;
+    padding: 16px;
+    margin-inline: 20px;
+
+}
+.rCard:hover{
+    background-color: rgb(155, 154, 154);
+    transition: 1s ease;
+    cursor: pointer;
+}
+.rCard img{
+    width: 42%;
+    border-radius: 50%;
+}
+.rCard button{
+    width: 90px;
+    height: 30px;
+    background-color: rgb(3, 165, 165);
+    color: white;
+    border: none;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.blog{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.blog .blogCard{
+    width: 300px;
+    text-align: center;
+    background-color: #fff;
+    margin-inline: 22px;
+    padding: 16px;
+    border-radius: 5px;
+
+}
+.blogCard img{
+    width: 100%;
+    border-radius: 5px;
+}
+.blogCard a{
+    padding: 4px 20px;
+    background-color: rgb(3, 151, 151);
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+}
+.blogCard:hover{
+    transition: 1s ease;
+    background-color: gray;
+    cursor: pointer;
+}
+.connect{
+    text-align: center;
+}
+.connect input{
+    width: 380px;
+    padding: 8px;
+    font-size: 18px;
+    background-color: transparent;
+    margin-top: 11px;
+    border: 2px solid black;
+
+}
+.connect button{
+    width: 130px;
+    height: 36px;
+    background-color: rgb(1, 143, 143);
+    color: white;
+    font-size: 20px;
+    border: none;
+    margin-top: 22px;
+    cursor: pointer;
+}
+
+.footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: black;
+    padding: 44px;
+    margin-top: 33px;
+    color: white;
+}
+
+/* item Page css */
+
+.itemPage{
+
+    display: none;
+    margin-top: 33px;
+    margin-left: 25px;
+}
+.itemPage img{
+    width: 400px;
+}
+.itemPage .itemText{
+    margin-inline: 24px;
+}
+.itemText h2{
+    color: rgb(1, 167, 1);
+}
+.itemPage input{
+    width: 30px;
+    padding: 4px;
+    font-size: 20px;
+}
+.itemText a{
+    padding: 4px 20px ;
+    background-color: orangered;
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+/* buyPage */
+
+.buyPage{
+    display: none;
+    width: 40%;
+    background-color: #fff;
+    padding: 22px;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, 40%);
+    top: -15%;
+    border-radius: 4px;
+
+}
+
+.buyText input{
+    width: 95%;
+    padding: 7px;
+    border: 2px solid black;
+    margin-top: 8px;
+    font-size: 18px;
+
+}
+.buyPage .cross{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    background-color: rgb(171, 170, 170);
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.buyText button{
+    width: 120px;
+    height: 34px;
+    background-color: rgb(1, 125, 125);
+    color: white;
+    font-size: 20px;
+    border: none;
+    margin-top: 22px;
+}
+.buyText select{
+    padding: 4px;
+    font-size: 18px;
+}
+
+
+
+@media only screen and (max-width:600px){
+    nav ul{
+        display: none;
+    }
+    .icon{
+        display: flex;
+        cursor: pointer;
+    }
+    .showData{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 58px;
+        background-color: rgb(120, 120, 120);
+        width: 100%;
+        height: 240px;
+        gap: 20px;
+        padding: 0%;
+        text-align: center;
+
+    }
+    .mainText h1{
+        font-size: 40px;
+    }
+    .mainText h2{
+        font-size: 24px;
+    }
+    .crd img{
+        width: 71%;
+    }
+    .connect input{
+        width: 65%;
+    }
+}
+
+@media only screen and (max-width:400px){
+    .main img{
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width:1000px){
+    .main{
+        display: block;
+        text-align: center;
+    }
+    .main img{
+        margin-top: 20px;
+    }
+
+}
+.cropfit{
+    object-fit: cover;
+}
+.wrapper {
+    height: 300px;
+    display: flex;
+    gap: 20px;
+}
+    </style>
+
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <h1>Trendy Traditional </h1>
+            </div>
+            <ul>
+                <li><a href="" class="active">Home</a></li>
+                <li><a href="#shop" id="shops">Shop</a></li>
+                <li><a href="#review" id="reviews">Review</a></li>
+                <li><a href="#blog" id="blogs">Blog</a></li>
+                <li><a href="#contact" id="contacts">Contact</a></li>
+
+            </ul>
+            <div class="icon">
+                <i id="bar" class="fa-solid fa-bars"></i>
+            </div>
+        </nav>
+
+        <!-- main page -->
+        <div class="main">
+            <div class="mainText">
+                <h2>Fashion Hub</h2>
+                <h1> The Online Wardrobe Experience</h1>
+                <p>Clothes are the first step to building a character..</p>
+                <button>Explore</button>
+            </div>
+            <img src="ALL CLOTHES.jpg" alt="Vidya" height="450">
+        </div>
+
+        <!-- shopping card -->
+
+        <div class="shop" id="shop">
+            <div class="head">
+                <h1>Trending <span>Cloth's</span></h1>
+            </div>
+            <div class="cards">
+                <div class="crd">
+                    <img src="c1.jpg" alt="">
+                    <h3>Pattu Kurta</h3>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <h3>₹399</h3>
+                </div>
+                <div class="crd">
+                    <img src="floral-kurti.webp" alt="">
+                    <h3>Floral Kurti</h3>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <h3>₹699</h3>
+                </div>
+                <div class="crd">
+                    <img src="c3.jpg" alt="">
+                    <h3>Traditional Sherwani</h3>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <h3>₹499</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards">
+            <div class="crd">
+                <img src="c4.jpg" alt="">
+                <h3>Silk Kurti</h3>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <h3>₹1599</h3>
+            </div>
+            <div class="crd">
+                <img src="c5.jpg" alt="">
+                <h3>Ajrakh Kurta</h3>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <h3>₹599</h3>
+            </div>
+            <div class="crd">
+                <img src="c6.jpg" alt="">
+                <h3>Lehenga</h3>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <h3>₹1999</h3>
+            </div>
+        </div>
+
+        <div class="cards">
+            <div class="crd">
+                <img src="c7.jpg" alt="">
+                <h3>Evergreen Black</h3>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <h3>₹2999</h3>
+            </div>
+            <div class="crd">
+                <img src="c8.jpg" alt="">
+                <h3>Panjabi Kurti</h3>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <h3>₹1999</h3>
+            </div>
+            <div class="crd">
+                <img src="c9.jpg" alt="">
+                <h3>Silk Saree</h3>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <h3>₹599</h3>
+            </div>
+        </div>
+
+        <!-- review -->
+
+        <div class="customer" id="review">
+            <div class="head">
+                <h1>Customer <span>Review</span></h1>
+            </div>
+            <div class="reviews">
+                <div class="rCard">
+                    <img src="m1.jpg" alt="">
+                    <p>The fabric of the saree determines its texture, weight, durability, and comfort. You can choose a that suits your preference, skin type.</p>
+                    <button>More.</button>
+                </div>
+                 <div class="rCard">
+                    <img src="c8.jpg" alt="">
+                    <p>The style of the Kurti refers to the way it is draped around the body. There are many ways to drape a Kurti,culture, and tradition of India.</p>
+                    <button>More.</button>
+                </div>
+                <div class="rCard">
+                    <img src="c1.jpg" alt="">
+                    <p>The design of the Kurta includes its colour, pattern, print, embroidery, design, and fabric.</p>
+                    <button>More.</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- blog -->
+        <div class="read" id="blog">
+            <div class="head">
+                <h1>Read <span>Blog's</span></h1>
+            </div>
+            <div class="blog">
+                <div class="blogCard">
+                    <img src="c6.jpg" alt="">
+                    <p>Bridal lehengas feature intricate embroidery, luxurious fabrics, and rich colours, 
+                        making them perfect for wedding brides. With their voluminous skirts and elaborate 
+                        cholis, bridal lehengas exude timeless beauty and charm for brides to make a 
+                        statement on their special day.</p>
+                    <a href="https://www.beyoung.in/blog/latest-kurta-design-for-men-2020">Read More</a>
+                </div>
+                <div class="blogCard">
+                    <img src="c8.jpg" alt="">
+                    <p>Kurtis are versatile and can be worn for many occasions, including everyday wear, formal attire, and office wear. Some popular designs include peplum kurtis, which feature a flared ruffle attached at the waist. 
+                    </p>
+                    <a href="https://blog.myntra.com/must-have-kurti-designs-for-women-in-2021/">>Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- contact  -->
+        <div class="contact" id="contact">
+            <div class="head">
+                <h1>Contact <span>Us</span></h1>
+            </div>
+            <div class="connect">
+                <input type="text" placeholder="Enter Your Name" id="names"> <br>
+                <input type="text" placeholder="Enter Your Number" id="number"> <br>
+                <button onclick="connect()">Connect</button>
+
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div class="footer">
+            <div class="text">
+                <h2>Trendy Traditional</h2>
+                <p>Clothes are the first step to building a character..<br>
+                    Thanks for shopping <br>
+                    Stay Connected</p>
+
+            </div>
+            <div class="text">
+                <h2>Explore</h2>
+                <p>All</p>
+                <p>Rated</p>
+                <p>Scores</p>
+                <p>Scores</p>
+                 
+
+            </div>
+            <div class="text">
+                <h2>Connect:</h2>
+                <p>Connect: 8210475742</p>
+                <p>Insta: @vidyaabhishek7903</p>
+                <p>Twitter: vidyaabhishek7903</p>
+                <p>Facebook: Vidya Abhishek</p>
+
+            </div>
+            <div class="text">
+                <h2>Vidya Abhishek</h2>
+                <p>Term & Condition</p>
+                <p>Privacy Policy                </p>
+                <p>FAQs</p>
+                <p>Special credits</p>
+
+            </div>
+        </div>
+
+
+    </div>
+     
+
+    <!-- item Page -->
+    <div class="itemPage">
+        <img id="itemImg" src="" alt="">
+        <div class="itemText">
+            <h3>Trending</h3>
+            <h3>₹699</h3>
+            <p>Quantity</p>
+            <input type="number" value="1" >
+            <h2>Available Offer's</h2>
+            <p>Special PriceGet extra 13% off (price inclusive of cashback/coupon)</p>
+            <p>Bank Offer₹15 off on UPI Transaction</p>
+            <p>Bank OfferFlat ₹200 off on HDFC Bank Credit/Debit</p>
+            <p>Bank OfferFlat ₹200 off on HDFC Bank Credit/Debit</p>
+            <p>Clothes are the first step to building a character..<br>
+                Stay poitive and spend life happily.. Thanks!.</p>
+            <a href="">Back</a> 
+            <a id="buyBtn">Buy Now</a>    
+
+
+
+        </div>
+    </div>
+
+
+
+    <div class="buyPage">
+        <div class="cross">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="buyText">
+            
+        </div>
+    </div>
+    <script src="E - com.js"></script>
+</body>
+</html>
